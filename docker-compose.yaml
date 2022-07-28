@@ -23,7 +23,6 @@ services:
       - 9200:9200
     networks: 
         - observability
-   
   kibana:
     image: docker.elastic.co/kibana/kibana:8.3.2
     container_name: kibana
@@ -69,4 +68,4 @@ services:
 
 networks:
   observability:
-    external: true
+    driver: bridge
