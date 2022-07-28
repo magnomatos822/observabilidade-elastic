@@ -57,7 +57,7 @@ services:
       - observability
 
   apm:
-    image: docker.elastic.co/apm/apm-server-oss:8.3.2
+    image: docker.elastic.co/apm/apm-server-oss:7.17.5
     container_name: apm
     volumes:      
     - ./apm/apm-server.yml:/usr/share/apm-server/apm-server.yml
