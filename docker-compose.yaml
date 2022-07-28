@@ -31,9 +31,8 @@ services:
     volumes:
       - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
     environment:
-      - ELASTICSEARCH_URL=http://elasticsearch:9200
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-      
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200",]'
+      ELASTICSEARCH_URL: http://elasticsearch:9200
     networks: 
         - observability
 
