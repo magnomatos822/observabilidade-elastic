@@ -1,8 +1,9 @@
-version: "3.6"
+version: "3"
+
 services:  
 
   elasticsearch:
-    image: harbor.pcce.ce.gov.br/elastic/elasticsearch:8.3.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.3.2
     container_name: elasticsearch
     environment:
       - node.name=elasticsearch
@@ -20,26 +21,21 @@ services:
       - ./elasticsearch_data:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
-      - 9300:9300
     networks: 
         - observability
   kibana:
-    image: kibana:8.3.2
-    container_name: harbor.pcce.ce.gov.br/elastic/kibana:8.3.2
+    image: docker.elastic.co/kibana/kibana:8.3.2
+    container_name: kibana
     ports:
       - 5601:5601
     environment:
       ELASTICSEARCH_URL: http://elasticsearch:9200
       ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
-    volumes:
-      - ./kibanadata:/usr/share/kibana/data
-    depends_on:
-      - elasticsearch
     networks: 
         - observability
 
   metricbeat:
-    image: harbor.pcce.ce.gov.br/elastic/docker.elastic.co/beats/metricbeat:8.3.2
+    image: docker.elastic.co/beats/metricbeat:8.3.2
     container_name: metricbeat
     user: root
     volumes:      
@@ -50,7 +46,7 @@ services:
       - observability
 
   heartbeat:
-    image: harbor.pcce.ce.gov.br/elastic/docker.elastic.co/beats/heartbeat:8.3.2
+    image: docker.elastic.co/beats/heartbeat:8.3.2
     container_name: heartbeat
     volumes:      
     - ./beats/heartbeat/heartbeat.yml:/usr/share/heartbeat/heartbeat.yml
@@ -60,7 +56,7 @@ services:
       - observability
 
   apm:
-    image: harbor.pcce.ce.gov.br/elastic/docker.elastic.co/apm/apm-server-oss:7.17.5
+    image: docker.elastic.co/apm/apm-server-oss:7.17.5
     container_name: apm
     volumes:      
     - ./apm/apm-server.yml:/usr/share/apm-server/apm-server.yml
