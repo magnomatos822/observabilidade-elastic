@@ -12,3 +12,11 @@ setup -E setup.kibana.host=172.17.210.54:5601 \
 -E output.elasticsearch.hosts=["172.17.210.54:9200"]`
 
 https://www.docker.elastic.co/
+
+
+Inserir esse comando dentro do container do Elasticsearch
+``
+
+
+Inserir esse comando dentro do conteiner do Kibana
+bin/kibana-verification-code
