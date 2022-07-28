@@ -25,7 +25,7 @@ services:
         - observability
   kibana:
     image: kibana:8.3.2
-    container_name: harbor.pcce.ce.gov.br/elastic/kibana
+    container_name: harbor.pcce.ce.gov.br/elastic/kibana:8.3.2
     ports:
       - 5601:5601
     environment:
@@ -39,7 +39,7 @@ services:
         - observability
 
   metricbeat:
-    image: harbor.pcce.ce.gov.br/elastic/metricbeat:8.3.2
+    image: harbor.pcce.ce.gov.br/elastic/docker.elastic.co/beats/metricbeat:8.3.2
     container_name: metricbeat
     user: root
     volumes:      
@@ -50,7 +50,7 @@ services:
       - observability
 
   heartbeat:
-    image: harbor.pcce.ce.gov.br/elastic/heartbeat:8.3.2
+    image: harbor.pcce.ce.gov.br/elastic/docker.elastic.co/beats/heartbeat:8.3.2
     container_name: heartbeat
     volumes:      
     - ./beats/heartbeat/heartbeat.yml:/usr/share/heartbeat/heartbeat.yml
@@ -60,7 +60,7 @@ services:
       - observability
 
   apm:
-    image: docker.elastic.co/apm/apm-server-oss:7.17.5
+    image: harbor.pcce.ce.gov.br/elastic/docker.elastic.co/apm/apm-server-oss:7.17.5
     container_name: apm
     volumes:      
     - ./apm/apm-server.yml:/usr/share/apm-server/apm-server.yml
