@@ -34,7 +34,7 @@ services:
       # - ELASTICSEARCH_URL=http://elasticsearch:9200
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
     volumes:
-      - kibanadata:/usr/share/kibana/data
+      - ./elasticsearch_data:/usr/share/kibana/data
     depends_on:
       - elasticsearch
     networks: 
