@@ -3,7 +3,7 @@
 Dar permissões aos volumes para permitir autorização de escrita.
 
 `
-sudo chown -R 1000:1000
+sudo chown -R root:root
 `
 
 `docker run \
@@ -20,3 +20,5 @@ Inserir esse comando dentro do container do Elasticsearch
 
 Inserir esse comando dentro do conteiner do Kibana
 bin/kibana-verification-code
+
+python manage.py elasticapm check
