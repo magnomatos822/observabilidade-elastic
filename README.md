@@ -17,8 +17,15 @@ https://www.docker.elastic.co/
 Inserir esse comando dentro do container do Elasticsearch
 `bin/elasticsearch-create-enrollment-token --scope kibana`
 
+`./bin/elasticsearch-setup-passwords -u kibana_system auto
+`
+
 
 Inserir esse comando dentro do conteiner do Kibana
 bin/kibana-verification-code
 
 python manage.py elasticapm check
+
+
+Password for the [elastic] user successfully reset.
+New value: viT20EaBSHX_*cr4LCuV
