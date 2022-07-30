@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       - xpack.security.enabled=false
-    #   - discovery.type=single-node
+      - discovery.type=single-node
       # - xpack.security.authc.api_key.enabled=true
       # - ELASTIC_PASSWORD= TGF@bxh4uqe1zvf0hqk
       # - ELASTIC_USERNAME= elastic
