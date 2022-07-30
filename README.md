@@ -15,7 +15,7 @@ https://www.docker.elastic.co/
 
 
 Inserir esse comando dentro do container do Elasticsearch
-``
+`bin/elasticsearch-create-enrollment-token --scope kibana`
 
 
 Inserir esse comando dentro do conteiner do Kibana
