@@ -5,12 +5,9 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.3.3
     container_name: elasticsearch
     restart: always
-    environment:
-      - xpack.security.enabled=false
-      - discovery.type=single-node
-      - xpack.encryptedSavedObjects.encryptionKey=411bddf21262f563cd31f255572834ec
-      - xpack.reporting.encryptionKey=e38d2a334b4650548c9230b349753545
-      - xpack.security.encryptionKey=992e0ce17c180880e9c751fbd4e36576
+    # environment:
+      # - xpack.security.enabled=
+      # - discovery.type=single-node
       # - xpack.security.authc.api_key.enabled=true
       # - ELASTIC_PASSWORD= TGF@bxh4uqe1zvf0hqk
       # - ELASTIC_USERNAME= elastic
