@@ -17,9 +17,26 @@ https://www.docker.elastic.co/
 Inserir esse comando dentro do container do Elasticsearch
 `bin/elasticsearch-create-enrollment-token --scope kibana`
 
-`./bin/elasticsearch-setup-passwords -u kibana_system auto
-`
+`./bin/elasticsearch-setup-passwords -u kibana interactive`
 
+Reset passwords in Elasticsearch
+`./elasticsearch-reset-password  --interactive -u kibana`
+`./elasticsearch-reset-password  --interactive -u kibana_system`
+
+Criar Keystores
+Criação do Keystore:
+
+./bin/kibana-keystore create
+Created Kibana keystore in /home/gsw.anselmoj/kibana-7.5.1-linux-x86_64/data/kibana.keystore
+
+Adicionar a entrada do username (coloquei kibana):
+
+./bin/kibana-keystore add elasticsearch.username
+Enter value for elasticsearch.username: ******
+Adicionando a entrada do password (coloquei a senha elastic):
+
+./bin/kibana-keystore add elasticsearch.password
+Enter value for elasticsearch.password: *******
 
 Inserir esse comando dentro do conteiner do Kibana
 bin/kibana-verification-code
