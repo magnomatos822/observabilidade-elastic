@@ -81,7 +81,6 @@ services:
     user: root
     volumes:      
       - /var/run/docker.sock:/var/run/docker.sock
-      # - ./beats/metric/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
       - /mnt/STORAGE/beats/metric:/usr/share/metricbeat/
     restart: on-failure
     networks: 
