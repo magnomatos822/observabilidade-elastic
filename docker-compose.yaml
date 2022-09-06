@@ -22,8 +22,8 @@ services:
         hard: 65536
     cap_add: 
       - IPC_LOCK
-    # volumes:
-    #   - ./elasticsearch_data:/usr/share/elasticsearch/data
+    volumes:
+      - ./elasticsearch_data:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
     networks: 
