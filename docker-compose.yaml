@@ -8,11 +8,9 @@ services:
     environment:
       - xpack.security.enabled=false
       - discovery.type=single-node
-      # - xpack.security.authc.api_key.enabled=true
-      # - ELASTIC_PASSWORD= TGF@bxh4uqe1zvf0hqk
-      # - ELASTIC_USERNAME= elastic
-      # Use single node discovery in order to disable production mode and avoid bootstrap checks.
-      # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+      - xpack.security.authc.api_key.enabled=true
+      - ELASTIC_PASSWORD= TGF@bxh4uqe1zvf0hqk
+      - ELASTIC_USERNAME= elastic
     ulimits: 
       memlock:
         soft: -1 
