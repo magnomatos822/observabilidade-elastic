@@ -6,6 +6,7 @@ services:
     container_name: elasticsearch
     environment:
       - node.name=elasticsearch
+      - node.max_local_storage_nodes=20
       - cluster.name=es-docker-cluster
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
