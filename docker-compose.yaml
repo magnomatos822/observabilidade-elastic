@@ -81,7 +81,7 @@ services:
     user: root
     volumes:      
       - /var/run/docker.sock:/var/run/docker.sock
-      - /mnt/STORAGE/VOLUMES/beats/metric:/usr/share/metricbeat/
+      - /mnt/STORAGE/VOLUMES/beats/metric/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
     restart: on-failure
     networks: 
       - observability
@@ -90,7 +90,7 @@ services:
     image: docker.elastic.co/beats/heartbeat:8.3.3
     container_name: heartbeat
     volumes:      
-    - /mnt/STORAGE/VOLUMES/beats/heartbeat/:/usr/share/heartbeat
+    - /mnt/STORAGE/VOLUMES/beats/heartbeat/heartbeat.yml:/usr/share/heartbeat/heartbeat.yml
     environment: 
     - setup.kibana.host=kibana:5601
     networks: 
@@ -100,7 +100,7 @@ services:
     image: docker.elastic.co/apm/apm-server:8.3.3
     container_name: apm
     volumes:      
-    - /mnt/STORAGE/VOLUMES/apm:/usr/share/apm-server
+    - /mnt/STORAGE/VOLUMES/apm/apm-server.yml:/usr/share/apm-server/apm-server.yml
     ports:
       - "8200:8200"
     restart: on-failure

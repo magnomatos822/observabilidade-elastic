@@ -46,3 +46,15 @@ python manage.py elasticapm check
 
 Password for the [elastic] user successfully reset.
 New value: viT20EaBSHX_*cr4LCuV
+
+
+curl -XPUT -H "Content-Type: application/json" http://localhost:9200/_cluster/settings -d '{ "transient": { "cluster.routing.allocation.disk.threshold_enabled": false } }'
+
+curl -XPUT -H "Content-Type: application/json" http://localhost:9200/_all/_settings -d '{"index.blocks.read_only_allow_delete": null}'
+
+Modo 2
+$curl -X PUT "http://[YOUR_ELASTICSEARCH_ENDPOINT]:9200/_cluster/settings?pretty" -H 'Content-Type: application/json' -d' { "transient": { "cluster.routing.allocation.disk.watermark.low": "50gb", "cluster.routing.allocation.disk.watermark.high": "20gb", "cluster.routing.allocation.disk.watermark.flood_stage": "10gb", "cluster.info.update.interval": "1m"}}'
+
+
+curl -XPUT -H "Content-Type: application/json" http://172.17.210.54:9200/_cluster/settings -d '{ "transient": { "cluster.routing.allocation.disk.threshold_enabled": false } }'
+curl -XPUT -H "Content-Type: application/json" http://172.17.210.54:9200/_all/_settings -d '{"index.blocks.read_only_allow_delete": null}'
