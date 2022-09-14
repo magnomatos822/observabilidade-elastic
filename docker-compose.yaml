@@ -4,16 +4,17 @@ services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.3.3
     container_name: elasticsearch
-    restart: always
     environment:
-      - xpack.security.enabled=true
+      - node.name=elasticsearch
+      - cluster.name=es-docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - http.cors.enabled=true
+      - http.cors.allow-origin="*"
       - discovery.type=single-node
-      - xpack.security.authc.api_key.enabled=true
-      - ELASTIC_PASSWORD= TGF@bxh4uqe1zvf0hqk
-      - ELASTIC_USERNAME= elastic
-    ulimits: 
+    ulimits:
       memlock:
-        soft: -1 
+        soft: -1
         hard: -1
       nofile:
         soft: 65536
