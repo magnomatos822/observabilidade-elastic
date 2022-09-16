@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   metricbeat:
-    image: docker.elastic.co/beats/metricbeat:8.3.3
+    image: docker.elastic.co/beats/metricbeat:8.4.1
     container_name: metricbeat
     user: root
     volumes:      
@@ -12,7 +12,7 @@ services:
     networks: 
       - observability
   heartbeat:
-    image: docker.elastic.co/beats/heartbeat:8.3.3
+    image: docker.elastic.co/beats/heartbeat:8.4.1
     container_name: heartbeat
     volumes:      
     - /mnt/STORAGE/VOLUMES/beats/heartbeat/heartbeat.yml:/usr/share/heartbeat/heartbeat.yml
@@ -22,7 +22,7 @@ services:
       - observability
 
   apm:
-    image: docker.elastic.co/apm/apm-server:8.3.3
+    image: docker.elastic.co/apm/apm-server:8.4.1
     container_name: apm
     volumes:      
     - /mnt/STORAGE/VOLUMES/apm/apm-server.yml:/usr/share/apm-server/apm-server.yml
